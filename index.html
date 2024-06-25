@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .image-folder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            max-width: 80%;
+            margin: auto;
+            transition: max-height 0.3s ease-in-out;
+            overflow: hidden;
+            max-height: 100px; /* Adjust to initial collapsed size */
+        }
+        .image-folder.expanded {
+            max-height: 1000px; /* Adjust to fully expanded size */
+        }
+        .image-folder:hover {
+            max-height: 1000px; /* Adjust to fully expanded size */
+        }
+        .image-folder img {
+            border-radius: 15px;
+            transition: transform 0.3s;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .image-folder img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <div class="image-folder">
+        <img src="images/image1.jpg" alt="Image 1">
+        <img src="images/image2.jpg" alt="Image 2">
+        <img src="images/image3.jpg" alt="Image 3">
+        <img src="images/image3.jpg" alt="Image 4">
+        <img src="images/image3.jpg" alt="Image 5">
+        <img src="images/image3.jpg" alt="Image 6">
+        <img src="images/image3.jpg" alt="Image 7">
+        <img src="images/image3.jpg" alt="Image 8">
+        <img src="images/image3.jpg" alt="Image 9">
+        <img src="images/image3.jpg" alt="Image 10">
+        <img src="images/image3.jpg" alt="Image 11">
+    </div>
+</body>
+</html>
