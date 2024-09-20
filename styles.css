@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     margin: 0;
     height: 100vh;
@@ -7,107 +8,104 @@ body {
     background: url('images/wallhaven-qzqv25.jpg') no-repeat center center fixed;
     background-size: cover;
     overflow: hidden;
+    font-family: Calibri, sans-serif;
 }
 
+/* Container for the Gallery */
 .gallery-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 85%;
     height: 80%;
-    margin: auto;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     overflow: hidden;
     position: relative;
-    padding: 20px; /* Same padding on all sides */
+    padding: 20px;
 }
 
+/* Gallery Grid */
 .gallery {
-   display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 10px;
     width: 100%;
     height: 100%;
     overflow: auto;
-    border-radius: 15px;
-    scrollbar-width: none; /* For Firefox */
+    scrollbar-width: none;
 }
 
 .gallery::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
+    display: none;
 }
 
+/* Individual Gallery Items */
 .gallery-item {
     height: 150px;
     width: 100px;
     object-fit: cover;
     border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     cursor: pointer;
-    /*filter: blur(0px);
-    background: rgba(255, 255, 255, 0.25);*/
 }
 
 .gallery-item:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    /*filter: blur(0);*/
 }
 
+/* Fullscreen Overlay */
 .fullscreen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; 
-   /* max-width: 90%;
-    max-height: 80%;*/
-    /*transform: translate(-50%, -50%); */
-   /* object-fit: contain; /*ensures the image maintains its aspect ratio */ 
-    border-radius: 15px;
-    z-index: 1000;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0);
+    z-index: 1000;
     transition: background 0.5s ease;
     overflow: hidden;
 }
-    .fullscreen img {
+
+.fullscreen img {
     max-width: 90%;
     max-height: 80%;
     object-fit: contain;
-    border-radius: 15px;
-    transition: all 0.5s ease;
-
+    transition: all 0.5s ease; /* Smooth scaling transition */
 }
+
+/* Animation to Center */
 .fullscreen-center {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1); /* Move to center and keep scale */
-}   
-.fullscreen.fullscreen-open {
+}
+
+/* Fullscreen Open */
+.fullscreen-open {
     transform: translate(-50%, -50%) scale(1); /* Centered and scaled */
     max-width: 90%;
     max-height: 80%;
     border-radius: 15px; /* Adjust border-radius for fullscreen */
 }
 
+/* Blur Effect for Background */
 .blur-background {
-    filter: blur(85px);
+    filter: blur(8px);
     transition: filter 0.5s ease;
 }
 
+/* Title Box Styling */
 .title-box {
     position: absolute;
     top: 90px;
     left: 50%;
-    height: auto;
-    width: 80vw
-    width: 310px;
     transform: translateX(-50%);
     padding: 10px 20px;
     background: rgba(255, 255, 255, 0.25);
@@ -115,8 +113,9 @@ body {
     backdrop-filter: blur(10px);
     font-size: 5vw;
     color: #ffffff;
-    font-family: calibri, sans-serif; /* Font type */
-    text-align: center; /* Center align text */
+    text-align: center;
     border-radius: 15px;
     z-index: 1000;
+    width: 80vw;
+    max-width: 310px;
 }
