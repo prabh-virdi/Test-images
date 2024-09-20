@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
             img.style.left = `${rect.left}px`;
             img.style.width = `${rect.width}px`;
             img.style.height = `${rect.height}px`;
-            img.style.transition = 'all 0.3s ease';
+            img.style.transition = 'all 1.0s ease';
 
             fullscreen.appendChild(img);
             document.body.appendChild(fullscreen);
 
             requestAnimationFrame(() => {
-                fullscreen.style.transition = 'background 0.5s ease';
+                fullscreen.style.transition = 'background 1.0s ease';
                 fullscreen.style.background = 'rgba(0, 0, 0, 0.8)';
                 img.style.top = '50%';
                 img.style.left = '50%';
