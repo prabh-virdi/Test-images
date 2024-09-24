@@ -3,7 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const gallery = document.querySelector('.gallery');
     let isFullscreenOpen = false;
 
-    VanillaTilt.init(document.querySelector(".gallery"), {
+    VanillaTilt.init(document.querySelector(".gallery-item"), {
+      max: 10,
+      speed: 200,
+      easing: "cubic-bezier(.03,.98,.52,.99)",
+      reverse: true,
+      glare: true,
+      "max-glare": 0.1,
+     VanillaTilt.init(document.querySelector(".box"), {
       max: 10,
       speed: 200,
       easing: "cubic-bezier(.03,.98,.52,.99)",
