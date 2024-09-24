@@ -1,121 +1,94 @@
-/* General Styles */
 body {
-    margin: 0;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('images/wallhaven-qzqv25.jpg') no-repeat center center fixed;
-    background-size: cover;
-    overflow: hidden;
-    font-family: Calibri, sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
 }
 
-/* Container for the Gallery */
 .gallery-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 85%;
-    height: 80%;
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
+    width: 80%;
     overflow: hidden;
     position: relative;
-    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle box shadow around container */
 }
 
-/* Gallery Grid */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    scrollbar-width: none;
+/* Glow Effect */
+.gallery-container::before {
+    content: '';
+    position: absolute;
+    top: -5px; /* Adjust to position the glow above the container */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Width of the point source */
+    height: 20px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 20%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0.8;
+    box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.6); /* Glow effect */
 }
 
-.gallery::-webkit-scrollbar {
-    display: none;
-}
-
-/* Individual Gallery Items */
-.gallery-item {
-    height: 150px;
-    width: 100px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-}
-
-.gallery-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Fullscreen Overlay */
-.fullscreen {
-    position: fixed;
-    top: 0;
+.gallery-container::after {
+    content: '';
+    position: absolute;
+    top: 0; /* Align at the top edge of the container */
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 5px; /* Height of the streak glow */
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6) 50%, transparent);
+}
+
+/* Existing gallery styles */
+.gallery {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0);
-    z-index: 1000;
-    transition: background 0.5s ease;
-    overflow: hidden;
+    position: relative;
+    width: 100%;
 }
 
-.fullscreen img {
-    max-width: 90%;
-    max-height: 80%;
-    object-fit: contain;
-    transition: all 0.5s ease; /* Smooth scaling transition */
-}
-
-/* Animation to Center */
-.fullscreen-center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1); /* Move to center and keep scale */
-}
-
-/* Fullscreen Open */
-.fullscreen-open {
-    transform: translate(-50%, -50%) scale(1); /* Centered and scaled */
-    max-width: 90%;
-    max-height: 80%;
-    border-radius: 15px; /* Adjust border-radius for fullscreen */
-}
-
-/* Blur Effect for Background */
-.blur-background {
-    filter: blur(8px);
-    transition: filter 0.5s ease;
-}
-
-/* Title Box Styling */
-.title-box {
+.gallery-item {
     position: absolute;
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    font-size: 5vw;
-    color: #ffffff;
-    text-align: center;
-    border-radius: 15px;
-    z-index: 1000;
-    width: 80vw;
-    max-width: 310px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform-origin: center center;
+    opacity: 0;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+}
+
+.gallery-item.main {
+    opacity: 1;
+    transform: scale(1.2) translateX(0);
+    z-index: 3;
+}
+
+.gallery-item.prev {
+    opacity: 0.8;
+    transform: scale(0.8) translateX(-110%);
+    z-index: 2;
+}
+
+.gallery-item.prev-prev {
+    opacity: 0.6;
+    transform: scale(0.6) translateX(-220%);
+    z-index: 1;
+}
+
+.gallery-item.next {
+    opacity: 0.8;
+    transform: scale(0.8) translateX(110%);
+    z-index: 2;
+}
+
+.gallery-item.next-next {
+    opacity: 0.6;
+    transform: scale(0.6) translateX(220%);
+    z-index: 1;
 }
