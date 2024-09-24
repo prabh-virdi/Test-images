@@ -106,7 +106,6 @@ body {
 
 .gallery-item:hover {
     transform: scale(1.1);
-    transform: perspective(10px) rotateX(1deg);
    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     filter: blur(0);*/
 }
