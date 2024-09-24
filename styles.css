@@ -21,10 +21,34 @@ body {
     border-radius: 15px;
     overflow: hidden;
     position: relative;
-    transform-style: preserve-3d;
     padding: 20px; /* Same padding on all sides */
 }
-.gallery-container .card {
+.gallery {
+   display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: none; /* For Firefox */
+}
+
+.gallery::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.gallery-item {
+    height: 150px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    /*filter: blur(0px);
+    background: rgba(255, 255, 255, 0.25);*/
+.gallery-item .card {
   position: relative;
   background: rgba(255, 255, 255, 0.07);
   width: 300px;
@@ -57,30 +81,6 @@ body {
   font-size: 1.5rem;
   color: #b393d3;
 }
-.gallery {
-   display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    scrollbar-width: none; /* For Firefox */
-}
-
-.gallery::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
-}
-
-.gallery-item {
-    height: 150px;
-    width: 100px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    /*filter: blur(0px);
-    background: rgba(255, 255, 255, 0.25);*/
 }
 }
 
