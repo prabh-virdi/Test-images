@@ -24,7 +24,7 @@ body {
     transform-style: preserve-3d;
     padding: 20px; /* Same padding on all sides */
 }
-.box .card {
+.gallery-container .card {
   position: relative;
   background: rgba(255, 255, 255, 0.07);
   width: 300px;
