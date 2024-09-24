@@ -1,94 +1,115 @@
 body {
+    margin: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+    background: url('images/wallhaven-qzqv25.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
 }
 
 .gallery-container {
-    width: 80%;
-    overflow: hidden;
-    position: relative;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle box shadow around container */
-}
-
-/* Glow Effect */
-.gallery-container::before {
-    content: '';
-    position: absolute;
-    top: -5px; /* Adjust to position the glow above the container */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px; /* Width of the point source */
-    height: 20px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 20%, rgba(255, 255, 255, 0) 70%);
-    opacity: 0.8;
-    box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.6); /* Glow effect */
-}
-
-.gallery-container::after {
-    content: '';
-    position: absolute;
-    top: 0; /* Align at the top edge of the container */
-    left: 0;
-    width: 100%;
-    height: 5px; /* Height of the streak glow */
-    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6) 50%, transparent);
-}
-
-/* Existing gallery styles */
-.gallery {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 85%;
+    height: 80%;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    overflow: hidden;
     position: relative;
+    padding: 20px; /* Same padding on all sides */
+}
+
+.gallery {
+   display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    padding: 10px;
     width: 100%;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: none; /* For Firefox */
+}
+
+.gallery::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
 }
 
 .gallery-item {
-    position: absolute;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    transform-origin: center center;
-    opacity: 0;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
+    height: 150px;
+    width: 100px;
+    object-fit: cover;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    /*filter: blur(0px);
+    background: rgba(255, 255, 255, 0.25);*/
 }
 
-.gallery-item.main {
-    opacity: 1;
-    transform: scale(1.2) translateX(0);
-    z-index: 3;
+.gallery-item:hover {
+    transform: scale(1.1);
+   /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    filter: blur(0);*/
 }
 
-.gallery-item.prev {
-    opacity: 0.8;
-    transform: scale(0.8) translateX(-110%);
-    z-index: 2;
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+   /* max-width: 90%;
+    max-height: 80%;*/
+    /*transform: translate(-50%, -50%); */
+   /* object-fit: contain; /*ensures the image maintains its aspect ratio */ 
+    border-radius: 0px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+    .fullscreen img {
+    max-width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+}
+.fullscreen.fullscreen-open {
+    transform: /*translate(-50%, -50%)*/ scale(1);
 }
 
-.gallery-item.prev-prev {
-    opacity: 0.6;
-    transform: scale(0.6) translateX(-220%);
-    z-index: 1;
+.fullscreen.fullscreen-close {
+    transform: /*translate(-50%, -50%)*/ scale(1);
+    transition: transform 0.5s ease;
 }
 
-.gallery-item.next {
-    opacity: 0.8;
-    transform: scale(0.8) translateX(110%);
-    z-index: 2;
+.blur-background {
+    filter: blur(5px);
 }
 
-.gallery-item.next-next {
-    opacity: 0.6;
-    transform: scale(0.6) translateX(220%);
-    z-index: 1;
+.title-box {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    height: auto;
+    width: 80vw
+    width: 310px;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    font-size: 5vw;
+    color: #ffffff;
+    font-family: calibri, sans-serif; /* Font type */
+    text-align: center; /* Center align text */
+    border-radius: 15px;
+    z-index: 1000;
 }
