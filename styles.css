@@ -82,11 +82,6 @@ body {
     /*filter: blur(0px);
     background: rgba(255, 255, 255, 0.25);*/
 }
-
-.gallery-item:hover {
-    transform: scale(1.1);
-   /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    filter: blur(0);*/
 }
 
 .fullscreen {
