@@ -47,12 +47,14 @@ body {
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
+    transform: perspective(10px) rotateX(2deg);
     /*filter: blur(0px);
     background: rgba(255, 255, 255, 0.25);*/
 }
 
 .gallery-item:hover {
     transform: scale(1.1);
+    transform: perspective(0px) rotateX(90deg);
    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     filter: blur(0);*/
 }
